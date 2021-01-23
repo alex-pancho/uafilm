@@ -1,0 +1,666 @@
+2020-08-03 17:18:33 [scrapy.utils.log] INFO: Scrapy 2.2.1 started (bot: ukino)
+2020-08-03 17:18:33 [scrapy.utils.log] INFO: Versions: lxml 4.5.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.6.0 (v3.6.0:41df79263a11, Dec 23 2016, 07:18:10) [MSC v.1900 32 bit (Intel)], pyOpenSSL 19.1.0 (OpenSSL 1.1.1g  21 Apr 2020), cryptography 3.0, Platform Windows-10-10.0.19041-SP0
+2020-08-03 17:18:33 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'ukino',
+ 'LOG_FILE': 'D:\\OneDrive\\Current_job\\my_github\\uafilm\\ukino\\ukino.log',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'ukino.spiders',
+ 'SPIDER_MODULES': ['ukino.spiders']}
+2020-08-03 17:18:33 [scrapy.extensions.telnet] INFO: Telnet Password: 66f7f3ac98ea8316
+2020-08-03 17:18:33 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2020-08-03 17:18:34 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2020-08-03 17:18:34 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2020-08-03 17:18:34 [scrapy.middleware] INFO: Enabled item pipelines:
+['ukino.pipelines.UkinoPipeline']
+2020-08-03 17:18:34 [scrapy.core.engine] INFO: Spider opened
+2020-08-03 17:18:34 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2020-08-03 17:18:34 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2020-08-03 17:18:34 [py.warnings] WARNING: d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\core\scraper.py:152: UserWarning: The "KinoSpider.parse" method is a generator and includes a "return" statement with a value different than None. This could lead to unexpected behaviour. Please see https://docs.python.org/3/reference/simple_stmts.html#the-return-statement for details about the semantics of the "return" statement within generators
+  warn_on_generator_with_return_value(spider, callback)
+
+2020-08-03 17:19:34 [scrapy.extensions.logstats] INFO: Crawled 387 pages (at 387 pages/min), scraped 349 items (at 349 items/min)
+2020-08-03 17:20:34 [scrapy.extensions.logstats] INFO: Crawled 784 pages (at 397 pages/min), scraped 752 items (at 403 items/min)
+2020-08-03 17:21:34 [scrapy.extensions.logstats] INFO: Crawled 1071 pages (at 287 pages/min), scraped 1032 items (at 280 items/min)
+2020-08-03 17:22:20 [scrapy.core.engine] INFO: Closing spider (finished)
+2020-08-03 17:22:20 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 425013,
+ 'downloader/request_count': 1253,
+ 'downloader/request_method_count/GET': 1253,
+ 'downloader/response_bytes': 2699051,
+ 'downloader/response_count': 1253,
+ 'downloader/response_status_count/200': 1253,
+ 'elapsed_time_seconds': 226.219357,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2020, 8, 3, 14, 22, 20, 318995),
+ 'item_scraped_count': 1215,
+ 'log_count/INFO': 13,
+ 'log_count/WARNING': 1,
+ 'request_depth_max': 24,
+ 'response_received_count': 1253,
+ 'scheduler/dequeued': 1253,
+ 'scheduler/dequeued/memory': 1253,
+ 'scheduler/enqueued': 1253,
+ 'scheduler/enqueued/memory': 1253,
+ 'start_time': datetime.datetime(2020, 8, 3, 14, 18, 34, 99638)}
+2020-08-03 17:22:20 [scrapy.core.engine] INFO: Spider closed (finished)
+2021-01-17 20:43:26 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: ukino)
+2021-01-17 20:43:26 [scrapy.utils.log] INFO: Versions: lxml 4.6.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.5 (tags/v3.7.5:5c02a39a0b, Oct 15 2019, 00:11:34) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1i  8 Dec 2020), cryptography 3.3.1, Platform Windows-10-10.0.19041-SP0
+2021-01-17 20:43:46 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: ukino)
+2021-01-17 20:43:46 [scrapy.utils.log] INFO: Versions: lxml 4.6.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.5 (tags/v3.7.5:5c02a39a0b, Oct 15 2019, 00:11:34) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1i  8 Dec 2020), cryptography 3.3.1, Platform Windows-10-10.0.19041-SP0
+2021-01-17 20:44:06 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: ukino)
+2021-01-17 20:44:06 [scrapy.utils.log] INFO: Versions: lxml 4.6.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.5 (tags/v3.7.5:5c02a39a0b, Oct 15 2019, 00:11:34) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1i  8 Dec 2020), cryptography 3.3.1, Platform Windows-10-10.0.19041-SP0
+2021-01-17 20:45:23 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: ukino)
+2021-01-17 20:45:23 [scrapy.utils.log] INFO: Versions: lxml 4.6.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.5 (tags/v3.7.5:5c02a39a0b, Oct 15 2019, 00:11:34) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1i  8 Dec 2020), cryptography 3.3.1, Platform Windows-10-10.0.19041-SP0
+2021-01-17 20:45:29 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: ukino)
+2021-01-17 20:45:29 [scrapy.utils.log] INFO: Versions: lxml 4.6.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.5 (tags/v3.7.5:5c02a39a0b, Oct 15 2019, 00:11:34) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1i  8 Dec 2020), cryptography 3.3.1, Platform Windows-10-10.0.19041-SP0
+2021-01-17 20:45:34 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: ukino)
+2021-01-17 20:45:34 [scrapy.utils.log] INFO: Versions: lxml 4.6.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.5 (tags/v3.7.5:5c02a39a0b, Oct 15 2019, 00:11:34) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1i  8 Dec 2020), cryptography 3.3.1, Platform Windows-10-10.0.19041-SP0
+2021-01-17 20:46:24 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: ukino)
+2021-01-17 20:46:24 [scrapy.utils.log] INFO: Versions: lxml 4.6.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.5 (tags/v3.7.5:5c02a39a0b, Oct 15 2019, 00:11:34) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1i  8 Dec 2020), cryptography 3.3.1, Platform Windows-10-10.0.19041-SP0
+2021-01-17 21:04:42 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: ukino)
+2021-01-17 21:04:42 [scrapy.utils.log] INFO: Versions: lxml 4.6.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.5 (tags/v3.7.5:5c02a39a0b, Oct 15 2019, 00:11:34) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1i  8 Dec 2020), cryptography 3.3.1, Platform Windows-10-10.0.19041-SP0
+2021-01-17 21:04:42 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'ukino',
+ 'LOG_FILE': 'D:\\OneDrive\\Current_job\\my_github\\uafilm\\ukino\\ukino.log',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'ukino.spiders',
+ 'SPIDER_MODULES': ['ukino.spiders']}
+2021-01-17 21:04:42 [scrapy.extensions.telnet] INFO: Telnet Password: 647de3b1f21adb44
+2021-01-17 21:04:42 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2021-01-17 21:04:43 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2021-01-17 21:04:43 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2021-01-17 21:04:43 [scrapy.middleware] INFO: Enabled item pipelines:
+['ukino.pipelines.UkinoPipeline']
+2021-01-17 21:04:43 [scrapy.core.engine] INFO: Spider opened
+2021-01-17 21:04:43 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2021-01-17 21:04:43 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2021-01-17 21:04:43 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://blackpearl.tortuga.wtf/content/stream/films/lucy_in_the_sky_2019_webdl_1080p_amzn_28689/hls/1080/index.m3u8',
+               '480p': 'https://blackpearl.tortuga.wtf/content/stream/films/lucy_in_the_sky_2019_webdl_1080p_amzn_28689/hls/480/index.m3u8',
+               '720p': 'https://blackpearl.tortuga.wtf/content/stream/films/lucy_in_the_sky_2019_webdl_1080p_amzn_28689/hls/720/index.m3u8'},
+ 'desc': 'Наталі Портман, Джон Гемм, Ден Стівенс, Зазі Бітц, Пірл Аманда '
+         'Діксон, Нік Офферман',
+ 'director': 'Ной Гоулі<div id="footer">',
+ 'poster': 'https://kinoukr.com/uploads/posts/2020-06/1591606540_poster.jpg',
+ 'title_or': 'Lucy in the Sky',
+ 'title_ua': 'Люсі в небесах',
+ 'type_src': 'other',
+ 'year': '2019'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:43 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://blackpearl.tortuga.wtf/content/stream/films/ode.to.joy.2019.webdl.1080p_30876/hls/1080/index.m3u8',
+               '480p': 'https://blackpearl.tortuga.wtf/content/stream/films/ode.to.joy.2019.webdl.1080p_30876/hls/480/index.m3u8',
+               '720p': 'https://blackpearl.tortuga.wtf/content/stream/films/ode.to.joy.2019.webdl.1080p_30876/hls/720/index.m3u8'},
+ 'desc': 'Мартін Фріман, Морена Баккарін, Джейк Лейсі, Джейн Куртін, Мелісса '
+         'Ройч, Шеннон Вудворд',
+ 'director': 'Джейсон Вайнер<div id="footer">',
+ 'poster': 'https://kinoukr.com/uploads/posts/2020-06/1591606845_poster.jpg',
+ 'title_or': 'Ode to Joy',
+ 'title_ua': 'Ода до радості',
+ 'type_src': 'other',
+ 'year': '2019'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:43 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://blackpearl.tortuga.wtf/content/stream/films/black.mass.2015.bdrip.1080p_19509/hls/1080/index.m3u8',
+               '480p': 'https://blackpearl.tortuga.wtf/content/stream/films/black.mass.2015.bdrip.1080p_19509/hls/480/index.m3u8',
+               '720p': 'https://blackpearl.tortuga.wtf/content/stream/films/black.mass.2015.bdrip.1080p_19509/hls/720/index.m3u8'},
+ 'desc': 'Джонні Депп, Бенедикт Камбербетч, Дакота Джонсон, Сієнна Міллер, '
+         'Джуно Темпл, Кевін Бейкон',
+ 'director': 'Скотт Купер<div id="footer">',
+ 'poster': 'https://kinoukr.com/uploads/posts/2020-06/1591606952_poster.jpg',
+ 'title_or': 'Black Mass',
+ 'title_ua': 'Чорна меса',
+ 'type_src': 'other',
+ 'year': '2015'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:43 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://blackpearl.tortuga.wtf/content/stream/films/vacation.2015.bdrip.1080p_20445/hls/1080/index.m3u8',
+               '480p': 'https://blackpearl.tortuga.wtf/content/stream/films/vacation.2015.bdrip.1080p_20445/hls/480/index.m3u8',
+               '720p': 'https://blackpearl.tortuga.wtf/content/stream/films/vacation.2015.bdrip.1080p_20445/hls/720/index.m3u8'},
+ 'desc': 'Ед Гелмс, Кріс Гемсворт, Крістіна Епплгейт, Скайлер Джізондо, '
+         'Крістіна Епплґейт, Леслі Манн',
+ 'director': 'Джон Френсіс Дейлі, Джонатан Ґолдштейн<div id="footer">',
+ 'poster': 'https://kinoukr.com/uploads/posts/2020-06/1591607281_poster.jpg',
+ 'title_or': 'Vacation',
+ 'title_ua': 'Канікули',
+ 'type_src': 'other',
+ 'year': '2015'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:43 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'480p': 'https://blackpearl.tortuga.wtf/content/stream/films/hitman_2007_bdrip_720p_30657/hls/480/index.m3u8',
+               '720p': 'https://blackpearl.tortuga.wtf/content/stream/films/hitman_2007_bdrip_720p_30657/hls/720/index.m3u8'},
+ 'desc': 'Тімоті Оліфант, Дуґрей Скотт, Ольга Куриленко, Роберт Неппер, Ульріх '
+         "Томсен, Генрі Єн К'юсик",
+ 'director': 'Ксав"є Жанс<div id="footer">',
+ 'poster': 'https://kinoukr.com/uploads/posts/2020-06/1591607420_poster.jpg',
+ 'title_or': 'Hitman',
+ 'title_ua': 'Хітмен',
+ 'type_src': 'other',
+ 'year': '2007'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:43 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://blackpearl.tortuga.wtf/content/stream/films/the.tomorrow.man.2019.webdl.1080p.amzn_31558/hls/1080/index.m3u8',
+               '480p': 'https://blackpearl.tortuga.wtf/content/stream/films/the.tomorrow.man.2019.webdl.1080p.amzn_31558/hls/480/index.m3u8',
+               '720p': 'https://blackpearl.tortuga.wtf/content/stream/films/the.tomorrow.man.2019.webdl.1080p.amzn_31558/hls/720/index.m3u8'},
+ 'desc': 'Джон Літґов, Блайт Даннер, Ів Гарлов, Дерек Сесіл, Кеті Аселтон, '
+         'Софі Тетчер',
+ 'director': 'Ноубл Джонс<div id="footer">',
+ 'poster': 'https://kinoukr.com/uploads/posts/2020-06/1591607477_poster.jpg',
+ 'title_or': 'The Tomorrow Man',
+ 'title_ua': 'Людина майбутнього',
+ 'type_src': 'other',
+ 'year': '2019'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:46 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://blackpearl.tortuga.wtf/content/stream/films/the_way_back_2020_1080p_amzn_webdl_29891/hls/1080/index.m3u8',
+               '480p': 'https://blackpearl.tortuga.wtf/content/stream/films/the_way_back_2020_1080p_amzn_webdl_29891/hls/480/index.m3u8',
+               '720p': 'https://blackpearl.tortuga.wtf/content/stream/films/the_way_back_2020_1080p_amzn_webdl_29891/hls/720/index.m3u8'},
+ 'desc': 'Бен Аффлек, Ел Мадріґаль, Яніна Ґаванкар, Мішель Воткінс, Брендон '
+         'Вілсон',
+ 'director': 'Гевін О’Коннор<div id="footer">',
+ 'poster': 'https://kinoukr.com/uploads/posts/2020-06/1591606589_poster.jpg',
+ 'title_or': 'Шлях назад : The Way Back',
+ 'title_ua': 'Поза грою',
+ 'type_src': 'other',
+ 'year': '2020'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:47 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://blackpearl.tortuga.wtf/content/stream/films/human.with.a.stool.2019.webrip.1080p_23575/hls/1080/index.m3u8',
+               '480p': 'https://blackpearl.tortuga.wtf/content/stream/films/human.with.a.stool.2019.webrip.1080p_23575/hls/480/index.m3u8',
+               '720p': 'https://blackpearl.tortuga.wtf/content/stream/films/human.with.a.stool.2019.webrip.1080p_23575/hls/720/index.m3u8'},
+ 'desc': '<div id="title" style="color: #699bbb;"><strong style="font-size: '
+         '1.9vw">Людина з табуретом</strong></div><br /><br /><div '
+         'id="cover_div" style="float: left; margin: 0px 1.8% 0px 0px;"><img '
+         'id="cover_img" style="width: 184px; " '
+         'src="https://kinoukr.com/uploads/posts/2020-06/1591606405_poster.jpg" '
+         '/></div><div id="description" style="font-size: '
+         '1.6vw;"><strong><span style="color: #3974d0;">Вихід:</span></strong> '
+         'Україна, 2019<br /><strong><span style="color: '
+         '#3974d0;">Жанр:</span></strong> Документальний<br /><strong><span '
+         'style="color: #339966;">Переклад:</span></strong> Оригінал<br '
+         '/><strong><span style="color: #339966;">Тривалість:</span></strong> '
+         '01:40:00<br /><br /><strong><span style="color: '
+         '#03b9cc;">Режиссер:</span></strong> Ярослав Попов<br /><div '
+         'id="footer" style="clear: both; font-size: ; "><br /><strong><span '
+         'style="color: #3974d0;">Опис:</span></strong> Український '
+         'документальний фільм про подорож довжиною у життя.<br><br>Фільм '
+         'розповідає про подорож мандрівника та режисера Леоніда Кантера. У '
+         'далекому 2004 році на кухні у одній з київських квартир народилася '
+         'ідея – донести табурет до океану. Автор задуму Леонід Кантер у '
+         'супроводі найближчих друзів здійснив чотири подорожі, фільмуючи усе, '
+         'що з ними відбувалося. У фільмі показана саме остання подорож до '
+         'Тихого океану, яка тривала рік.<br><br>Фільм «Людина з табуретом» '
+         '(2019) буде цікаво дивитися онлайн усім поціновувачам авторського '
+         'кіно.<br /><br /><strong><span style="color: '
+         '#00a0b0;">Актори:</span></strong> Леонід Кантер<br /></div></div>',
+ 'director': 'Український документальний фільм про подорож довжиною у '
+             'життя.Фільм розповідає про подорож мандрівника та режисера '
+             'Леоніда Кантера. У далекому 2004 році на кухні у одній з '
+             'київських квартир народилася ідея – донести табурет до океану. '
+             'Автор задуму Леонід Кантер у супроводі найближчих друзів '
+             'здійснив чотири подорожі, фільмуючи усе, що з ними відбувалося. '
+             'У фільмі показана саме остання подорож до Тихого океану, яка '
+             'тривала рік.Фільм «Людина з табуретом» (2019) буде цікаво '
+             'дивитися онлайн усім поціновувачам авторського кіно.',
+ 'poster': 'https://kinoukr.com/uploads/posts/2020-06/1591606405_poster.jpg',
+ 'title_or': '',
+ 'title_ua': 'Людина з табуретом',
+ 'type_src': 'other',
+ 'year': '2019'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:48 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://blackpearl.tortuga.wtf/content/stream/films/the_boy_2016_bdrip_1080p_23581/hls/1080/index.m3u8',
+               '480p': 'https://blackpearl.tortuga.wtf/content/stream/films/the_boy_2016_bdrip_1080p_23581/hls/480/index.m3u8',
+               '720p': 'https://blackpearl.tortuga.wtf/content/stream/films/the_boy_2016_bdrip_1080p_23581/hls/720/index.m3u8'},
+ 'desc': 'Лорен Коен, Руперт Еванс, Бен Робсон, Діана Хардкесл, Джим Нортон, '
+         'Джеймс Расселл',
+ 'director': 'Вільям Брент Белл<div id="footer">',
+ 'poster': 'https://kinoukr.com/uploads/posts/2020-06/1591606477_poster.jpg',
+ 'title_or': 'The Boy',
+ 'title_ua': 'Лялька',
+ 'type_src': 'other',
+ 'year': '2016'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:48 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://sparrow.tortuga.wtf/content/stream/new/another.round.2020.1080p.amzn.webdl_51759/hls/1080/index.m3u8',
+               '480p': 'https://sparrow.tortuga.wtf/content/stream/new/another.round.2020.1080p.amzn.webdl_51759/hls/480/index.m3u8',
+               '720p': 'https://sparrow.tortuga.wtf/content/stream/new/another.round.2020.1080p.amzn.webdl_51759/hls/720/index.m3u8'},
+ 'desc': 'Mads Mikkelsen, Thomas Bo Larsen, Lars Ranthe, Magnus Millang, Maria '
+         'Bonnevie, Susse Wold, Helene Reingaard Neumann',
+ 'director': 'Thomas Vinterberg<div id="footer">',
+ 'poster': 'https://eneyida.tv/uploads/posts/2020-11/1604968054_1.jpg',
+ 'title_or': 'Druk',
+ 'title_ua': 'Ще по одній',
+ 'type_src': 'other',
+ 'year': '2020'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:49 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://sparrow.tortuga.wtf/content/stream/films/cooties.2014.bdrip.1080p_20421/hls/1080/index.m3u8',
+               '480p': 'https://sparrow.tortuga.wtf/content/stream/films/cooties.2014.bdrip.1080p_20421/hls/480/index.m3u8',
+               '720p': 'https://sparrow.tortuga.wtf/content/stream/films/cooties.2014.bdrip.1080p_20421/hls/720/index.m3u8'},
+ 'desc': 'Елайджа Вуд, Рейн Вілсон, Елісон Пілл, Лі Воннелл, Хорхе Гарсія, '
+         'Купер Рот',
+ 'director': 'Джонатан Мілотт, Кері Мерніон<div id="footer">',
+ 'poster': 'https://kinoukr.com/uploads/posts/2020-06/1591607284_poster.jpg',
+ 'title_or': 'Cooties',
+ 'title_ua': 'Кутіс',
+ 'type_src': 'other',
+ 'year': '2014'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:51 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://sparrow.tortuga.wtf/content/stream/films/the.kingdom.of.dreams.and.madness.2013.bdrip1080p_19018/hls/1080/index.m3u8',
+               '480p': 'https://sparrow.tortuga.wtf/content/stream/films/the.kingdom.of.dreams.and.madness.2013.bdrip1080p_19018/hls/480/index.m3u8',
+               '720p': 'https://sparrow.tortuga.wtf/content/stream/films/the.kingdom.of.dreams.and.madness.2013.bdrip1080p_19018/hls/720/index.m3u8'},
+ 'desc': 'Хаяо Міядзакі, Юміко Мійоші, Тошіо Сузукі, Шінсуке Нонака, Йошіакі '
+         'Нішімура, Сейджі Окуда',
+ 'director': 'Мамі Сунада<div id="footer">',
+ 'poster': 'https://kinoukr.com/uploads/posts/2020-06/1591603663_poster.jpg',
+ 'title_or': 'Yume to kyôki no ôkoku : The Kingdom of Dreams and Madness',
+ 'title_ua': 'Королівство мрій та безумства',
+ 'type_src': 'other',
+ 'year': '2013'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:53 [scrapy.crawler] INFO: Received SIGINT, shutting down gracefully. Send again to force 
+2021-01-17 21:04:53 [scrapy.core.engine] INFO: Closing spider (shutdown)
+2021-01-17 21:04:54 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'QTV [Плеєр 1] <div style=\'float:right;\' class="l-count">26 <img class="l-arrow" style=\'width:24px;height:24px;vertical-align:-7px;margin-left:10px;\' src=\'http://cdn.nserv.host/img/chevron-right.png\'></div>': None,
+               'Всі сезони <div style=\'float:right;\' class="l-count">2 <img class="l-arrow" style=\'width:24px;height:24px;vertical-align:-7px;margin-left:10px;\' src=\'http://cdn.nserv.host/img/chevron-right.png\'></div>': None},
+ 'desc': '<div id="title" style="color: #699bbb;"><strong style="font-size: '
+         '1.9vw">Макс Стіл / Max Steel 1 season </strong></div><br /><br '
+         '/><div id="cover_div" style="float: left; margin: 0px 1.8% 0px '
+         '0px;"><img id="cover_img" style="width: 184px; " '
+         'src="https://uakino.club/uploads/mini/poster/4f/2d601da2a5f501e5c671e88a386d45.jpg" '
+         '/></div><div id="description" style="font-size: '
+         '1.6vw;"><strong><span style="color: #3974d0;">Вихід:</span></strong> '
+         'США, 2013<br /><strong><span style="color: '
+         '#3974d0;">Жанр:</span></strong> Мультфільми<br /><strong><span '
+         'style="color: #f29420;">IMDb:</span></strong> 6.7<br /><strong><span '
+         'style="color: #03b9cc;">Режиссер:</span></strong> Michael Dowding, '
+         'Michael Goguen, Jeremy Brown<br /><div id="footer" style="clear: '
+         'both; font-size: ; "><br /><strong><span style="color: '
+         '#3974d0;">Опис:</span></strong> У звичайного шістнадцятирічного '
+         'хлопця Макса, зі звичайного маленького містечка, який веде спосіб '
+         'життя, що абсолютно нічим не відрізняється від його друзів і подруг, '
+         'несподівано з"являються загадкові, аномальні здібності. Він може '
+         'керувати силовою енергією, яку сам же і виробляє.<br /><br '
+         '/><strong><span style="color: #00a0b0;">Актори:</span></strong> '
+         'Ендрю Френсіс, Сем Вінсент, Майкл Добсон, Брайан Драммонд, Брайан '
+         'Добсон, Річард Йєн Кокс<br /></div></div>',
+ 'director': 'Ендрю Френсіс, Сем Вінсент, Майкл Добсон, Брайан Драммонд, '
+             'Брайан Добсон, Річард Йєн Кокс',
+ 'poster': 'https://uakino.club/uploads/mini/poster/4f/2d601da2a5f501e5c671e88a386d45.jpg',
+ 'title_or': 'Max Steel 1 season',
+ 'title_ua': 'Макс Стіл',
+ 'type_src': 'other',
+ 'year': '2013'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:54 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'AAA-Sound [Плеєр 1] <div style=\'float:right;\' class="l-count">26 <img class="l-arrow" style=\'width:24px;height:24px;vertical-align:-7px;margin-left:10px;\' src=\'http://cdn.nserv.host/img/chevron-right.png\'></div>': None},
+ 'desc': '<div id="title" style="color: #699bbb;"><strong style="font-size: '
+         '1.9vw">Месники: Могутні герої Землі / The Avengers: Earth"s '
+         'Mightiest Heroes 1 season </strong></div><br /><br /><div '
+         'id="cover_div" style="float: left; margin: 0px 1.8% 0px 0px;"><img '
+         'id="cover_img" style="width: 184px; " '
+         'src="https://uakino.club/uploads/mini/poster/54/843320f365dda3aba83b6e7a8ecd67.jpg" '
+         '/></div><div id="description" style="font-size: '
+         '1.6vw;"><strong><span style="color: #3974d0;">Вихід:</span></strong> '
+         'США, 2010<br /><strong><span style="color: '
+         '#3974d0;">Жанр:</span></strong> Мультфільми<br /><strong><span '
+         'style="color: #f29420;">IMDb:</span></strong> 8.3<br /><strong><span '
+         'style="color: #03b9cc;">Режиссер:</span></strong> Френк Пор, Сайра '
+         'Нілі, Вінтон Хйок<br /><div id="footer" style="clear: both; '
+         'font-size: ; "><br /><strong><span style="color: '
+         '#3974d0;">Опис:</span></strong> Для деяких злочинців створені '
+         'особливі в"язниці. Лиходії, які в них відбувають покарання, мають '
+         'неординарнім здібності. З недавнього часу з"явилася незвідана сила. '
+         'Вона знищує ці в"язниці. Відповідно, лиходії звільняються від взяття '
+         'під варту.<br /><br /><strong><span style="color: '
+         '#00a0b0;">Актори:</span></strong> Ерік Луміс, Colleen '
+         'O&#039;Shaughnessey, Брайан Блум, Рік Д. Вассерман, Крис Кокс, Фред '
+         'Татаскьор<br /></div></div>',
+ 'director': 'Ерік Луміс, Colleen O"Shaughnessey, Брайан Блум, Рік Д. '
+             'Вассерман, Крис Кокс, Фред Татаскьор',
+ 'poster': 'https://uakino.club/uploads/mini/poster/54/843320f365dda3aba83b6e7a8ecd67.jpg',
+ 'title_or': 'The Avengers: Earth"s Mightiest Heroes 1 season',
+ 'title_ua': 'Месники: Могутні герої Землі',
+ 'type_src': 'other',
+ 'year': '2010'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:54 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://sparrow.tortuga.wtf/content/stream/films/tomorrowland_2015_bdrip_1080p_15464/hls/1080/index.m3u8',
+               '480p': 'https://sparrow.tortuga.wtf/content/stream/films/tomorrowland_2015_bdrip_1080p_15464/hls/480/index.m3u8',
+               '720p': 'https://sparrow.tortuga.wtf/content/stream/films/tomorrowland_2015_bdrip_1080p_15464/hls/720/index.m3u8'},
+ 'desc': "Джордж Клуні, Брітт Робертсон, Джуді Ґрір, Кетрін Ган, Г'ю Лорі, "
+         'Пірс Ґенон',
+ 'director': 'Бред Берд<div id="footer">',
+ 'poster': 'https://kinoukr.com/uploads/posts/2020-06/1591524579_poster.jpg',
+ 'title_or': 'Tomorrowland',
+ 'title_ua': 'Земля майбутнього: Світ за межами',
+ 'type_src': 'other',
+ 'year': '2015'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:54 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://sparrow.tortuga.wtf/content/stream/films/crooked_house_2017_bdrip_1080p_15458/hls/1080/index.m3u8',
+               '480p': 'https://sparrow.tortuga.wtf/content/stream/films/crooked_house_2017_bdrip_1080p_15458/hls/480/index.m3u8',
+               '720p': 'https://sparrow.tortuga.wtf/content/stream/films/crooked_house_2017_bdrip_1080p_15458/hls/720/index.m3u8'},
+ 'desc': 'Макс Айронс, Ґленн Клоуз, Джилліан Андерсон, Крістіна Гендрікс, '
+         'Стефані Мартіні, Теренс Стемп',
+ 'director': 'Жиль Паке-Бреннер<div id="footer">',
+ 'poster': 'https://kinoukr.com/uploads/posts/2020-06/1591524792_poster.jpg',
+ 'title_or': 'Crooked House',
+ 'title_ua': 'Кривий будиночок',
+ 'type_src': 'other',
+ 'year': '2017'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:04:58 [scrapy.crawler] INFO: Received SIGINT twice, forcing unclean shutdown
+2021-01-17 21:05:34 [scrapy.utils.log] INFO: Scrapy 2.4.1 started (bot: ukino)
+2021-01-17 21:05:34 [scrapy.utils.log] INFO: Versions: lxml 4.6.2.0, libxml2 2.9.5, cssselect 1.1.0, parsel 1.6.0, w3lib 1.22.0, Twisted 20.3.0, Python 3.7.5 (tags/v3.7.5:5c02a39a0b, Oct 15 2019, 00:11:34) [MSC v.1916 64 bit (AMD64)], pyOpenSSL 20.0.1 (OpenSSL 1.1.1i  8 Dec 2020), cryptography 3.3.1, Platform Windows-10-10.0.19041-SP0
+2021-01-17 21:05:34 [scrapy.crawler] INFO: Overridden settings:
+{'BOT_NAME': 'ukino',
+ 'LOG_FILE': 'D:\\OneDrive\\Current_job\\my_github\\uafilm\\ukino\\ukino.log',
+ 'LOG_LEVEL': 'INFO',
+ 'NEWSPIDER_MODULE': 'ukino.spiders',
+ 'SPIDER_MODULES': ['ukino.spiders']}
+2021-01-17 21:05:34 [scrapy.extensions.telnet] INFO: Telnet Password: 25a67b0367ef7c2f
+2021-01-17 21:05:34 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.corestats.CoreStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.logstats.LogStats']
+2021-01-17 21:05:35 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2021-01-17 21:05:35 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2021-01-17 21:05:35 [scrapy.middleware] INFO: Enabled item pipelines:
+['ukino.pipelines.UkinoPipeline']
+2021-01-17 21:05:35 [scrapy.core.engine] INFO: Spider opened
+2021-01-17 21:05:35 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2021-01-17 21:05:35 [scrapy.extensions.telnet] INFO: Telnet console listening on 127.0.0.1:6023
+2021-01-17 21:05:35 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://sparrow.tortuga.wtf/content/stream/new/christmas_vacation_1989_bdrip_1080p_h.265_53101/hls/1080/index.m3u8',
+               '480p': 'https://sparrow.tortuga.wtf/content/stream/new/christmas_vacation_1989_bdrip_1080p_h.265_53101/hls/480/index.m3u8',
+               '720p': 'https://sparrow.tortuga.wtf/content/stream/new/christmas_vacation_1989_bdrip_1080p_h.265_53101/hls/720/index.m3u8'},
+ 'desc': "Chevy Chase, Beverly D'Angelo, Randy Quaid, Juliette Lewis, Johnny "
+         'Galecki, John Randolph, Diane Ladd',
+ 'director': 'Jeremiah S. Chechik<div id="footer">',
+ 'poster': 'https://eneyida.tv/uploads/posts/2019-12/1575531674_1.jpg',
+ 'title_or': 'Різдвяні канікули : Новорічна відпустка : National Lampoon"s '
+             'Christmas Vacation',
+ 'title_ua': 'Різдвяний відпочинок',
+ 'type_src': 'other',
+ 'year': '1989'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:05:40 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://sparrow.tortuga.wtf/content/stream/new/lez_bomb_2018_webdl_1080p_52789/hls/1080/index.m3u8',
+               '480p': 'https://sparrow.tortuga.wtf/content/stream/new/lez_bomb_2018_webdl_1080p_52789/hls/480/index.m3u8',
+               '720p': 'https://sparrow.tortuga.wtf/content/stream/new/lez_bomb_2018_webdl_1080p_52789/hls/720/index.m3u8'},
+ 'desc': 'Jenna Laurenzo, Caitlin Mehner, Brandon Micheal Hall, Steve '
+         "Guttenberg, Elaine Hendrix, Deirdre O'Connell, Rob Moran",
+ 'director': 'Jenna Laurenzo, Charlie Rowe, Matt Fleck, Conor Frank<div '
+             'id="footer">',
+ 'poster': 'https://eneyida.tv/uploads/posts/2021-01/1610165292_tbizakxngpot80iwxui9ebsbxli.jpg',
+ 'title_or': 'Lez Bomb',
+ 'title_ua': 'Білявки на всю голову',
+ 'type_src': 'other',
+ 'year': '2018'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:06:17 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'Воспроизвести': 'https://ashdi.vip/content/stream/new2/daisy.town.1971.bdrip.720p_ukr_fre_subukfrehurtom_25191/hls/index.m3u8'},
+ 'desc': "Марсель Боззюффи, П'єр Трабо, Жак Балютен, Jacques Jouanneau, П'єр "
+         'Торнад, Жан Бергер',
+ 'director': 'Рене Госіні<div id="footer">',
+ 'poster': 'https://uakino.club/uploads/mini/poster/eb/95e8629b9106b8486165519559321b.jpg',
+ 'title_or': 'Дейзі Таун : Daisy Town',
+ 'title_ua': 'Щасливчик Люк: Ромашка Таун',
+ 'type_src': 'other',
+ 'year': '1971'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:06:21 [scrapy.core.scraper] ERROR: Error processing {'all_links': {'1080p': 'https://sparrow.tortuga.wtf/content/stream/new/justice.league.dark.apokolips.war.2020.bdrip.1080p_50818/hls/1080/index.m3u8',
+               '480p': 'https://sparrow.tortuga.wtf/content/stream/new/justice.league.dark.apokolips.war.2020.bdrip.1080p_50818/hls/480/index.m3u8',
+               '720p': 'https://sparrow.tortuga.wtf/content/stream/new/justice.league.dark.apokolips.war.2020.bdrip.1080p_50818/hls/720/index.m3u8'},
+ 'desc': "Matt Ryan, Jerry O'Connell, Taissa Farmiga, Jason O'Mara, Rosario "
+         'Dawson, Stuart Allan, Rebecca Romijn',
+ 'director': 'Matt Peters, Christina Sotta<div id="footer">',
+ 'poster': 'https://eneyida.tv/uploads/posts/2020-11/1606230466_1.jpg',
+ 'title_or': 'Justice League Dark: Apokolips War',
+ 'title_ua': 'Темна Ліга Справедливості: Війна Апокаліпса',
+ 'type_src': 'other',
+ 'year': '2020'}
+Traceback (most recent call last):
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\twisted\internet\defer.py", line 654, in _runCallbacks
+    current.result = callback(current.result, *args, **kw)
+  File "d:\onedrive\current_job\my_github\uafilm\venv\lib\site-packages\scrapy\utils\defer.py", line 150, in f
+    return deferred_from_coro(coro_f(*coro_args, **coro_kwargs))
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\pipelines.py", line 13, in process_item
+    return save_item_dict(item)
+  File "D:\OneDrive\Current_job\my_github\uafilm\ukino\ukino\db.py", line 132, in save_item_dict
+    if cnt[0] != 0: print ("new MOVIE add")
+TypeError: 'NoneType' object is not subscriptable
+2021-01-17 21:06:27 [scrapy.core.engine] INFO: Closing spider (finished)
+2021-01-17 21:06:27 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'downloader/request_bytes': 129812,
+ 'downloader/request_count': 391,
+ 'downloader/request_method_count/GET': 391,
+ 'downloader/response_bytes': 1806904,
+ 'downloader/response_count': 391,
+ 'downloader/response_status_count/200': 350,
+ 'downloader/response_status_count/500': 41,
+ 'elapsed_time_seconds': 52.619137,
+ 'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2021, 1, 17, 19, 6, 27, 674980),
+ 'item_scraped_count': 327,
+ 'log_count/ERROR': 4,
+ 'log_count/INFO': 10,
+ 'request_depth_max': 4,
+ 'response_received_count': 350,
+ 'retry/count': 41,
+ 'retry/reason_count/500 Internal Server Error': 41,
+ 'scheduler/dequeued': 391,
+ 'scheduler/dequeued/memory': 391,
+ 'scheduler/enqueued': 391,
+ 'scheduler/enqueued/memory': 391,
+ 'start_time': datetime.datetime(2021, 1, 17, 19, 5, 35, 55843)}
+2021-01-17 21:06:27 [scrapy.core.engine] INFO: Spider closed (finished)
