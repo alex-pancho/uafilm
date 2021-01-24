@@ -27,12 +27,13 @@ def _printList(res, name=''):
 
 
 def chek_mov(films):
-    name_ua = films.get('title_ua')
-    name_orig = films.get('title_or')
-    year = films.get('year')
+    name_ua = films.get('title_ua', "")
+    name_orig = films.get('title_or', "")
+    year = films.get('year', "")
 
     if name_ua == "" and name_orig == "" and year == "":
         print('wrong parametrs')
+        print(films)
         return [0]
     if name_ua is not None and name_orig is not None:
         string = f"""("name_ua1" LIKE '%{name_ua}%'  or "name_orig" LIKE '%{name_orig}%') """
@@ -41,7 +42,9 @@ def chek_mov(films):
     elif name_orig is not None:
         string = f""" "name_orig" LIKE '%{name_orig}%' """
     else:
-        string = ''
+        print('wrong parametrs')
+        print(films)
+        return [0]
     if year != "":
         yearstr = f""" and "years" = {year} """
     else:
@@ -51,7 +54,7 @@ def chek_mov(films):
         cursor.execute(sql)
     except sqlite3.OperationalError:
         print(sql)
-        #input('..c')
+        input('..c')
     result = cursor.fetchall()
     lr = len(result)
     if lr > 0:
@@ -74,9 +77,6 @@ def add_mov(films):
     poster = films.get('poster', "")
     desc = films.get('desc', "")
     director = films.get('director', "")
-
-    #print([name_ua,type_src,name_orig,poster,year,director])
-    #input("...")
     all_pars = [name_ua, type_src, name_orig, poster, desc, year, director]
     for a in range(len(all_pars)):
         if all_pars[a] is None:
@@ -93,21 +93,21 @@ def add_mov(films):
         input('..c')
         return None
     conn.commit()
-    #print("ok, add")
     return chek_mov(films)
+
 
 def insert_link(li):
     sql = f"""SELECT * FROM "cinema_link" WHERE "kinoid"={li[0]} and "quality"='{li[2]}'  """
-    #print (sql)
+    # print (sql)
     try:
         cursor.execute(sql)
     except sqlite3.OperationalError as e:
         print(e)
-        print(sql) 
-        #input('..c')
+        print(sql)
+        input('..c')
     result = cursor.fetchall()
-    if len(result) >0:
-        print ("link in base")
+    if len(result) > 0:
+        print("link in base")
         return None
 
     sql = f"""INSERT INTO "cinema_link" ("kinoid","link","quality") VALUES {li[0],li[1],li[2]};"""
@@ -124,11 +124,9 @@ def insert_link(li):
 
 def save_item_dict(item):
     for i in item:
-        print(item[i])
-        if isinstance(item[i], dict):
+        if isinstance(item[i], dict) or item[i] is None:
             continue
-        item[i] = item[i].replace("'", '’').replace(",", ';')
-        print(item[i])
+        item[i] = item[i].replace("'", '’').replace(",", ';').replace('"', '’')
 
     cnt = chek_mov(item)
     if cnt[0] == 0:
@@ -143,9 +141,9 @@ def save_item_dict(item):
         print(x, "movie in base")
     if cnt[0] != 0:
         kinoid = cnt[1]
-        links= item.get("all_links", [])
+        links = item.get("all_links", [])
         for li, val in links.items():
-            #print("ADD:", kinoid, val, li)
-            ##input('..c')
+            # print("ADD:", kinoid, val, li)
+            # input('..c')
             if val is not None:
                 insert_link([kinoid, val, li])

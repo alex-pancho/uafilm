@@ -8,7 +8,7 @@
 #     https://docs.scrapy.org/en/latest/topics/settings.html
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-import os 
+import os
 
 BOT_NAME = 'ukino'
 
@@ -30,7 +30,7 @@ ROBOTSTXT_OBEY = False
 #    DEBUG - for debugging messages
 
 LOG_LEVEL = 'INFO'
-LOG_FILE = os.path.join(os.getcwd(),'ukino.log')
+LOG_FILE = os.path.join(os.getcwd(), 'ukino.log')
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
 # Configure maximum page connection count

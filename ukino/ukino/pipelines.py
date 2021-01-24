@@ -8,6 +8,7 @@
 from itemadapter import ItemAdapter
 from ukino.db import save_item_dict
 
+
 class UkinoPipeline:
     def process_item(self, item, spider):
         return save_item_dict(item)
