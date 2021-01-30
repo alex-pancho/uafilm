@@ -1,1 +1,1 @@
-ukino>scrapy crawl uakino
+ukino>scrapy crawl nserv

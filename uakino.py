@@ -1,19 +1,11 @@
 import time
-import sys
-import csv
-import locale
 import requests
 from lxml import html as HT
-import json
-import sqlite3
 import mainspider
 
 SCRIPT_VER = "kinoparser v 15.01.2020"
 item_list = ""
 BASE_URL = ''
-
-conn = sqlite3.connect("films.sqlite")
-cursor = conn.cursor()
 
 START = 4
 

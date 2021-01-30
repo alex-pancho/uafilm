@@ -1,7 +1,8 @@
-import json
+import os
 import sqlite3
 
-conn = sqlite3.connect("films/films.sqlite")
+BASE_DIR = 'films'
+conn = sqlite3.connect(os.path.join(BASE_DIR, "films.sqlite"))
 cursor = conn.cursor()
 # controller = Controller.from_port(address=local_url, port=9051)
 

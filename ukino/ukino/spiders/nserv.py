@@ -21,9 +21,9 @@ class KinoSpider(scrapy.Spider):
             'http://nserv.host:5300/eneyida/list?cat=films',
             'http://nserv.host:5300/uakino/list?cat=filmi',
             'http://nserv.host:5300/kinoukr/list?cat=films',
-            # "http://nserv.host:5300/eneyida/list?cat=cartoon",
-            # "http://nserv.host:5300/uakino/list?cat=cartoon",
-            # "http://nserv.host:5300/kinoukr/list?cat=cartoon"
+            "http://nserv.host:5300/eneyida/list?cat=cartoon",
+            "http://nserv.host:5300/uakino/list?cat=cartoon",
+            "http://nserv.host:5300/kinoukr/list?cat=cartoon"
              ]
         if url is None:
             for url in urls:
