@@ -1,5 +1,6 @@
+.idea
 venv
 __pycache__
-ukino/ukino/ukino.log
-films
+*ukino.log
+web
 m3u
