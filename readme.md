@@ -17,3 +17,14 @@
 `cd uakino`
 
 `scrapy crawl parser_name`
+
+### Database 
+By default, the data is stored in the local MySQL database. 
+
+The USED_DB parameter can be changed in settings.py. 
+
+Also supported MySQL database
+
+You can add, change DB in db.py
+
+Work with databases is based by [Pony ORM] (https://docs.ponyorm.org/database.html)

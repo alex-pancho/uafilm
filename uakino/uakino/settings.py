@@ -12,6 +12,9 @@ BOT_NAME = 'uakino'
 SPIDER_MODULES = ['uakino.spiders']
 NEWSPIDER_MODULE = 'uakino.spiders'
 
+# Type for database, default  'mysql'
+# if you prefer you can change to 'sqlite'
+USED_DB = 'mysql'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'uakino (+http://www.yourdomain.com)'

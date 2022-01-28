@@ -1,5 +1,5 @@
 from pony.orm import *
-
+from settings import USED_DB as used_db
 
 db = Database()
 
@@ -44,9 +44,15 @@ db_params = dict(provider='mysql',
 sqlite = dict(provider='sqlite',
               filename='uakino.db',
               create_db=True)
+
 set_sql_debug(True)
-db.bind(**db_params)
-#db.bind(**sqlite)
+
+if used_db == 'mysql':
+    db.bind(**db_params)
+elif used_db == 'sqlite':
+    db.bind(**sqlite)
+else:
+    raise ConnectionError("Wrong or not supported DB in setting")
 db.generate_mapping(create_tables=True)
 
 def add_to_db(item):

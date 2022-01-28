@@ -3,7 +3,7 @@ from .core import CoreSpider
 from ..items import UkinoItem
 
 class BaseURL:
-    base_url = 'https://uakino.club/'  # index.php?do=cat&category=filmi&box_mac=112233
+    base_url = 'https://uakino.club/'  # https://uakino.club/index.php?do=cat&category=filmi&box_mac=112233
     mac = dict(box_mac='11223344')
     all_desc = []
 
@@ -13,7 +13,7 @@ class UkinoSpider(CoreSpider, BaseURL):
     start_urls = [BaseURL.base_url]
 
     def start_requests(self, url=None):
-        pages = ['filmi']
+        pages = ['seriesss', 'cartoon', 'filmi']
         if url is None:
             for page in pages:
                 self.category = page
@@ -25,7 +25,11 @@ class UkinoSpider(CoreSpider, BaseURL):
     def pre_parse(self, response):
         type_src = ""
         if 'filmi' in response.url:
-            type_src = "movie"
+            type_src = 'movie'
+        elif 'cartoon' in response.url:
+            type_src = 'cartoon'
+        elif 'seriesss' in response.url:
+            type_src = 'series'
         # items = UkinoItem()
         #   # and then inside for:
         # items['title_ua'] = ch.xpath("./title/text()").get()

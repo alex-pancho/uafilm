@@ -4,6 +4,7 @@ from xml.etree.ElementTree import fromstring
 from xml.etree.ElementTree import ParseError
 
 class CoreSpider(scrapy.Spider):
+
     @classmethod
     def tag_cleaner(cls, out):
         if out.find("<channel>") != -1:
