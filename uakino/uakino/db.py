@@ -1,5 +1,5 @@
 from pony.orm import *
-from settings import USED_DB as used_db
+from .settings import USED_DB as used_db
 
 db = Database()
 

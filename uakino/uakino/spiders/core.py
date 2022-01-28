@@ -7,8 +7,8 @@ class CoreSpider(scrapy.Spider):
 
     @classmethod
     def tag_cleaner(cls, out):
-        if out.find("<channel>") != -1:
-            out = out[:out.find("<channel>")]
+        if out is None:
+            return out
         out = out.replace("]", "").replace("[", " ").replace("\t", " ").replace("  ", " ")
         out = out.replace("&gt;", " ").replace('a{', "").replace('color:inherit;', "").replace("}", "")
         out = re.sub(re.compile('<.*?>'), '', out)
