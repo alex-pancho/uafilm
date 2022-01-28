@@ -6,9 +6,9 @@
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
-from ukino.db import save_item_dict
+from .db import save
 
 
-class UkinoPipeline:
+class UakinoPipeline:
     def process_item(self, item, spider):
-        return save_item_dict(item)
+        return save(item)
