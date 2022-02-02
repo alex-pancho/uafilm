@@ -121,7 +121,8 @@ def add_m3u(m3u, type_src):
         quality = "720p"
     else:
         quality = "?"
-    link_in_base = Links.get(m3u_links=m3u["m3u_link"])
+    with db_session:
+        link_in_base = Links.get(m3u_links=m3u["m3u_link"])
     if link_in_base is not None:
         sql_logger.debug("current link in DB, append doesnt need")
         return
