@@ -1,8 +1,10 @@
-import scrapy
 from scrapy import Selector
+from scrapy import FormRequest
+from scrapy import Request
 from .core import CoreSpider
 from ..items import UkinoItem
-
+from ..settings import DEBUG
+from urllib.parse import urlparse
 
 class BaseURL:
     base_url = 'https://uakino.club/'  # https://uakino.club/index.php?do=cat&category=filmi&box_mac=112233
@@ -18,13 +20,13 @@ class UkinoSpider(CoreSpider, BaseURL):
         Get the first page of the section
         :param url: URL for parsing
         """
-        pages = ['seriesss']  # , 'cartoon', 'filmi'
+        pages = ['filmi', 'cartoon', 'seriesss']  #
         if url is None:
             for page in pages:
                 kwords = dict(do="cat", category=page, **self.mac)
-                yield scrapy.FormRequest(url=self.base_url, method='GET', formdata=kwords, callback=self.pre_parse)
+                yield FormRequest(url=self.base_url, method='GET', formdata=kwords, callback=self.pre_parse)
         else:
-            yield scrapy.FormRequest(url=url, method='GET', formdata=self.mac, callback=self.parse)
+            yield FormRequest(url=url, method='GET', formdata=self.mac, callback=self.parse)
 
     def pre_parse(self, response):
         """
@@ -55,14 +57,17 @@ class UkinoSpider(CoreSpider, BaseURL):
                         description=description,
                         year=ch.xpath("//b/a/text()").get(),
                         shot=ch.xpath("./logo_30x30/text()").get(),
-                        type_src=type_src)
+                        type_src=type_src,
+                        series={}
+                        )
             if type_src == 'series':
                 season = self.tag_cleaner(ch.xpath("//b[contains(text(), 'сезон')]").get())
                 item["series"] = {"season": season}
-            yield scrapy.FormRequest(url=item_url, method='GET', formdata=self.mac, callback=self.parse, cb_kwargs=item)
-        for next_page in scrapy.Selector(response=response, type="xml").xpath('//next_page_url'):
+            yield FormRequest(url=item_url, method='GET', formdata=self.mac, callback=self.parse, cb_kwargs=item)
+        for next_page in Selector(response=response, type="xml").xpath('//next_page_url'):
             next_page_url = next_page.xpath("./text()").get()
-            yield scrapy.FormRequest(url=next_page_url, method='GET', formdata=self.mac, callback=self.pre_parse)
+            if DEBUG: continue
+            yield FormRequest(url=next_page_url, method='GET', formdata=self.mac, callback=self.pre_parse)
 
     def parse(self, response, **item):
         """
@@ -70,42 +75,55 @@ class UkinoSpider(CoreSpider, BaseURL):
         :param response: scrapy response
         :param item: current movie or series dict
         """
+
         select = Selector(response=response, type="xml").xpath('//channel').getall()
         for ch in select:
             ch = Selector(text=ch, type="xml")
             title = ch.xpath("./title/text()").get()
             if item['type_src'] != 'series':
                 stream_url = ch.xpath("./stream_url/text()").get()
+                if "https://www.youtube.com/" in stream_url:
+                    continue
+                if item.get('description') is None:
+                    item['description'] = ""
                 description = ch.xpath("./description/text()").get()
+                dict_update = self.get_detailed_values(description)
+                year = dict_update.pop("year")
+                if year != item.get("year"):
+                    item["year"] = year
+                item.update(**dict_update)
+                yield Request(url=stream_url, method='GET', callback=self.post_parse, cb_kwargs=item)
             else:
                 stream_url = {}
-                names = ch.xpath("//title/text()").getall()[1:]
-                for name in names:
-                    name_url = ch.xpath(f'//*[contains(text(), "{name}")]/../stream_url/text()').get()
-                    stream_url[name] = name_url
+                sub_series = ch.xpath("//submenu").getall()
+                for sub in sub_series:
+                    sub = Selector(text=sub, type="xml")
+                    name = sub.xpath('//title/text()').get()
+                    stream = sub.xpath('//stream_url/text()').get()
+                    if "https" not in stream:
+                        self.logger.warning(f"Wrong url: {stream} for {name} in {item['title_ua']}")
+                        stream = stream.replace('//ttps:', '')
+                        s = urlparse(stream)
+                        stream = f"https://{s.hostname}{s.path}"
+                    if "uploadvideo.info" in stream:
+                        # now its url does not work
+                        self.logger.warning(f"URL {stream} unavailable and temporary disabled")
+                        continue
+                    stream_url[name] = stream
                 description = Selector(response=response, type="xml").xpath('//all_description/text()').get()
-            if "https://www.youtube.com/" in stream_url:
-                continue
-            description = self.tag_cleaner(description)
-            categories = self.get_text_key(description, "Категорія:")
-            director = self.get_text_key(description, "Режисер:")
-            year = self.get_text_key(description, "Рік:")
-            actors = self.get_text_key(description, "Актори:")
-            item.update({"categories": categories, "actors": actors, "director": director})
-            if year != item.get("year"):
-                item["year"] = year
-            if item['type_src'] != 'series':
-                yield scrapy.Request(url=stream_url, method='GET', callback=self.post_parse, cb_kwargs=item)
-            else:
-                if len(item['description']) < len(description):
-                    start = description.find(actors) + len(actors)
-                    item['description'] = description[start:]
-                    if "title" not in item['series']:
-                        item['series'].update({"title": []})
-                    item['series']["title"].append(title)
+                dict_update = self.get_detailed_values(description)
+                year = dict_update.pop("year")
+                if year != item.get("year"):
+                    item["year"] = year
+                item.update(**dict_update)
+                desc = description.strip().splitlines()[-1]
+                if desc is not None and item.get('description', '') is not None:
+                    if len(item.get('description', '')) < len(desc):
+                        item['description'] = desc
                 for name, stream in stream_url.items():
-                    item['series']["title"].append(name)
-                    yield scrapy.Request(url=stream, method='GET', callback=self.post_parse, cb_kwargs=item)
+                    item['series'].update(title=title)
+                    item["name"] = name
+                    yield Request(url=stream, method='GET', callback=self.post_parse, cb_kwargs=item)
 
     def post_parse(self, response, **item):
         """
@@ -115,24 +133,28 @@ class UkinoSpider(CoreSpider, BaseURL):
         """
         body = response.text
         kwords = "var player = new Playerjs"
-        start = body.find(kwords) + len(kwords)+2
-        end = body.find("});", start)
-        src = body[start:end].replace("\n", "").replace("\t", "")
-        video_data = [s.split(":") for s in src.split(",")[:-1]]
+        src = self.get_text_key(body, kwords, "});")
+        if src is None:
+            # wrong body, stop item processing
+            if "may be for sale" in body:
+                body = "Domain for sale"
+            elif "not found" in body:
+                body = "Source not found"
+            self.logger.warning(f"wrong body, stop item processing:\t{body}")
+            return None
+        src = src.replace("'", '"').replace("\n", "\t").replace("\t", "").replace('({', '')
+
+        _id = self.get_text_key(src, 'id:"', '"')
+        file = self.get_text_key(src, 'file:"', '"')
+        get_poster = self.get_text_key(src, 'poster:"', '"')
+        sub = self.get_text_key(src, 'subtitle:"', '"')
+        subtitle = sub if sub is not None else ""
+        item["m3u_links"] = dict(id=_id, m3u_link=file, subtitle=subtitle)
+        poster = item.get("shot", "") if get_poster is None else get_poster
+        item["poster"] = poster
+        if "[Українські]" in item["m3u_links"].get("subtitle", ""):
+            item["m3u_links"]["subtitle"] = {"ua": subtitle.split("]")[-1]}
         i = {"json": {}}
-        vd = []
-        for v in video_data:
-            if v[0] == "id":
-                vd.append(dict(id=v[1:]))
-            elif v[0] != "":
-                if v[0] == 'file':
-                    v[0] = "m3u_link"
-                val = ":".join(v[1:]).strip('"')
-                if "[Українські]" in val:
-                    val = {"ua": val.split("]")[-1]}
-                vio = {v[0]: val}
-                vd[-1].update(vio)
-        item["m3u_links"] = vd
         for key in item:
             if key in UkinoItem.fields:
                 i[key] = item[key]

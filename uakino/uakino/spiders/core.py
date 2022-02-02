@@ -3,10 +3,12 @@ import re
 from xml.etree.ElementTree import fromstring
 from xml.etree.ElementTree import ParseError
 
+
+
 class CoreSpider(scrapy.Spider):
 
-    @classmethod
-    def tag_cleaner(cls, out):
+    @staticmethod
+    def tag_cleaner(out):
         if out is None:
             return out
         out = out.replace("]", "").replace("[", " ").replace("\t", " ").replace("  ", " ")
@@ -23,6 +25,20 @@ class CoreSpider(scrapy.Spider):
 
     @staticmethod
     def get_text_key(text, keyword, end: str = "\n"):
-        start = text.find(keyword) + len(keyword)
+        start = text.find(keyword)
+        if start == -1:
+            return None
+        start = start + len(keyword)
         end = text.find(end, start)
+        if end == -1:
+            end = len(text)
         return text[start:end]
+
+    @classmethod
+    def get_detailed_values(cls, description):
+        description = cls.tag_cleaner(description)
+        categories = cls.get_text_key(description, "Категорія:")
+        director = cls.get_text_key(description, "Режисер:")
+        year = cls.get_text_key(description, "Рік:")
+        actors = cls.get_text_key(description, "Актори:")
+        return {"categories": categories, "actors": actors, "director": director, "year": year}
