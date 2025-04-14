@@ -20,7 +20,7 @@
 ### Databases 
 By default, the data is stored in the local MySQL database.<br>
 Work with databases is based by [Pony ORM](https://docs.ponyorm.org/database.html). <br>
-You can add, change and config DB connecton setting in `db.py`<br>
+You can add, change and config DB connecton setting in [`db.py`](uakino/uakino/db.py)<br>
 Also supported SQLite databases.<br>
 The type of database used changes the `USE_DB` parameter in the `settings.py`.<br>
 
