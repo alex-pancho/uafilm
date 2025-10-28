@@ -7,7 +7,7 @@ from ..settings import DEBUG
 from urllib.parse import urlparse
 
 class BaseURL:
-    base_url = 'https://uakino.club/'  # https://uakino.club/index.php?do=cat&category=filmi&box_mac=112233
+    base_url = 'https://uakino.best/index.php'  # https://uakino.club/index.php?category=filmi&box_mac=112233
     mac = dict(box_mac='11223344')
 
 
@@ -23,7 +23,7 @@ class UkinoSpider(CoreSpider, BaseURL):
         pages = ['filmi', 'cartoon', 'seriesss']  #
         if url is None:
             for page in pages:
-                kwords = dict(do="cat", category=page, **self.mac)
+                kwords = dict(category=page, **self.mac)
                 yield FormRequest(url=self.base_url, method='GET', formdata=kwords, callback=self.pre_parse)
         else:
             yield FormRequest(url=url, method='GET', formdata=self.mac, callback=self.parse)

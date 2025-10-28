@@ -14,7 +14,7 @@
    
 ### Run
 
-`cd uakino` <br>
+`cd uakio` <br>
 `scrapy crawl {parser_name}`
 
 ### Databases 
