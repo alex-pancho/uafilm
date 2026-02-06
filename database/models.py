@@ -12,7 +12,7 @@ class UkinoModel:
     description: Optional[str] = None
     poster: Optional[str] = None
     imdb: Optional[str] = None
-    m3u_links: List[str] = field(default_factory=list)
+    m3u_links: Optional[str] = None
     json: Dict = field(default_factory=dict)
 
     # @classmethod

@@ -51,12 +51,12 @@ class AshdiSpider(scrapy.Spider):
             director=None,
             description=None,
             imdb=None,
-            m3u_links=[tw_url],
-            json={
+            m3u_links=tw_url,
+            json=str({
                 "source": "ashdi.club",
                 "club_link": response.url,
                 "vip_link": tw_url
-            }
+            })
         )
 
         yield item

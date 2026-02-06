@@ -18,8 +18,6 @@ class SQLitePipeline:
     def process_item(self, item, spider):
         
         item = dict(item)
-        if "json" in item and isinstance(item["json"], (dict, list)):
-            item["json"] = json.dumps(item["json"], ensure_ascii=False)
         item.pop("_id", None)
         keys = ", ".join(item.keys())
 
@@ -29,6 +27,8 @@ class SQLitePipeline:
         sql = f"INSERT INTO content ({keys}) VALUES ({placeholders})"
         self.cur.execute(sql, values)
         self.conn.commit()
+
+        return item
 
     def close_spider(self, spider):
         self.conn.close()
