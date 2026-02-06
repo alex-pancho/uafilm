@@ -5,3 +5,4 @@ __pycache__
 web
 m3u
 uakino/uakino/uakino.db
+database/films.sqlite

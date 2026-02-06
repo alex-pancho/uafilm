@@ -1,8 +1,9 @@
 from scrapy import Selector
 from scrapy import FormRequest
 from scrapy import Request
+from items import UkinoItem
+
 from .core import CoreSpider
-from ..items import UkinoItem
 from ..settings import DEBUG
 from urllib.parse import urlparse
 

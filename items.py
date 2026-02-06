@@ -19,5 +19,4 @@ class UkinoItem(scrapy.Item):
     poster = scrapy.Field()
     json = scrapy.Field()
     imdb = scrapy.Field()
-    m3u_links = scrapy.Field()
 

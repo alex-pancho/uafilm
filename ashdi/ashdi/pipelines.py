@@ -7,9 +7,15 @@ class SQLitePipeline:
         self.conn.execute("""
         CREATE TABLE IF NOT EXISTS content (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            type TEXT, title TEXT, ukr_name TEXT, eng_name TEXT,
-            year TEXT, vip_link TEXT, image_link TEXT,
-            club_link TEXT, original_id INTEGER UNIQUE
+            type TEXT, 
+            title TEXT, 
+            ukr_name TEXT, 
+            eng_name TEXT,
+            year TEXT, 
+            vip_link TEXT, 
+            image_link TEXT,
+            club_link TEXT, 
+            original_id INTEGER UNIQUE
         )
         """)
 
@@ -19,15 +25,9 @@ class SQLitePipeline:
         (type,title,ukr_name,eng_name,year,vip_link,image_link,club_link,original_id)
         VALUES (?,?,?,?,?,?,?,?,?)
         """, (
-            item["type"], 
-            item["title"], 
-            item["ukr_name"],
-            item["eng_name"], 
-            item["year"], 
-            item["vip_link"],
-            item["image_link"], 
-            item["club_link"], 
-            item["original_id"]
+            item["type"], item["title"], item["ukr_name"],
+            item["eng_name"], item["year"], item["vip_link"],
+            item["image_link"], item["club_link"], item["original_id"]
         ))
         self.conn.commit()
         return item
