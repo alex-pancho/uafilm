@@ -16,6 +16,16 @@
       "cwd": "${workspaceFolder}/uakino/uakinobest",
       "console": "integratedTerminal",
       "justMyCode": false
+    },
+    {
+      "name": "Debug Scrapy Spider",
+      "type": "python",
+      "request": "launch",
+      "module": "scrapy",
+      "args": ["crawl", "ashdi"],
+      "cwd": "${workspaceFolder}/ashdi",
+      "console": "integratedTerminal",
+      "justMyCode": false
     }
     ]
 }

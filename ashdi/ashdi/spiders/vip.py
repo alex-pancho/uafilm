@@ -1,6 +1,10 @@
 import scrapy
 import re
-from items import UkinoItem
+from pathlib import Path
+import sys
+project_dir = Path(__file__).parent.parent.parent.parent
+sys.path.append(str(project_dir))
+from database.items import UkinoItem
 
 BASE_URL = "https://ashdi.club/{}/nkZR6o0l/"
 TOTAL_TARGET = 25364
@@ -31,7 +35,7 @@ class AshdiSpider(scrapy.Spider):
         tw_title = response.xpath('//meta[@name="twitter:title"]/@content').get()
         tw_img = response.xpath('//meta[@name="twitter:image"]/@content').get()
 
-        if not any([tw_url, tw_title]):
+        if not tw_url:
             return # can have link to movie
 
         content_type = "serial" if "serial" in tw_url else "film"

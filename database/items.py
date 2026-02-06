@@ -4,11 +4,13 @@
 # https://docs.scrapy.org/en/latest/topics/items.html
 
 import scrapy
-
+from pathlib import Path
+import sys
+project_dir = Path(__file__).parent
+sys.path.append(str(project_dir))
+from models import UkinoModel
 
 class UkinoItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
     _id = scrapy.Field()
     title_ua = scrapy.Field()
     title_or = scrapy.Field()
@@ -17,6 +19,11 @@ class UkinoItem(scrapy.Item):
     director = scrapy.Field()
     description = scrapy.Field()
     poster = scrapy.Field()
-    json = scrapy.Field()
     imdb = scrapy.Field()
+    m3u_links = scrapy.Field()
+    json = scrapy.Field()
+
+    @classmethod
+    def from_model(cls, model: UkinoModel):
+        return cls(**model.__dict__)
 

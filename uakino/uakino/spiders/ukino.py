@@ -1,7 +1,7 @@
 from scrapy import Selector
 from scrapy import FormRequest
 from scrapy import Request
-from items import UkinoItem
+from database.items import UkinoItem
 
 from .core import CoreSpider
 from ..settings import DEBUG
