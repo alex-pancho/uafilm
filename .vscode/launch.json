@@ -18,7 +18,7 @@
       "justMyCode": false
     },
     {
-      "name": "Debug Scrapy Spider",
+      "name": "Debug Scrapy Spider HD",
       "type": "python",
       "request": "launch",
       "module": "scrapy",
@@ -26,6 +26,16 @@
       "cwd": "${workspaceFolder}/ashdi",
       "console": "integratedTerminal",
       "justMyCode": false
-    }
+    },
+    {
+      "name": "Debug Scrapy Spider uakino",
+      "type": "python",
+      "request": "launch",
+      "module": "scrapy",
+      "args": ["crawl", "uakino"],
+      "cwd": "${workspaceFolder}/uakino",
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
     ]
 }

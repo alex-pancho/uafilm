@@ -1,7 +1,7 @@
 import json
 import re
-import sys
 import scrapy
+import sys
 from pathlib import Path
 project_dir = Path(__file__).parent.parent.parent.parent
 sys.path.append(str(project_dir))
