@@ -18,7 +18,6 @@ class SQLitePipeline:
     def process_item(self, item, spider):
         
         item = dict(item)
-        item.pop("_id", None)
         keys = ", ".join(item.keys())
 
         placeholders = ", ".join(["?"] * len(item))

@@ -15,6 +15,3 @@ class UkinoModel:
     m3u_links: Optional[str] = None
     json: Dict = field(default_factory=dict)
 
-    # @classmethod
-    # def from_model(cls, model: UkinoModel):
-    #     return cls(**model.__dict__)
