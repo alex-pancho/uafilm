@@ -6,3 +6,6 @@ web
 m3u
 uakino/uakino/uakino.db
 database/films.sqlite
+build
+dist
+index.spec

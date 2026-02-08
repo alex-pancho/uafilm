@@ -13,4 +13,4 @@ t.daemon = True
 t.start()
 
 webbrowser.open(f"http://{HOST}:{PORT}")
-input("I`m ROBOT\n") 
+t.join()

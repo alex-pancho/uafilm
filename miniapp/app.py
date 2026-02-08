@@ -1,11 +1,21 @@
-from pathlib import Path
-from flask import Flask, render_template, request, g
+import os
+import sys
 import sqlite3
+from flask import Flask, render_template, request, g
 
 app = Flask(__name__)
 
 
-DB_PATH = Path(__file__).parent.parent / "database" / "films.sqlite"
+def base_path():
+    # якщо exe
+    if getattr(sys, "frozen", False):
+        return os.path.dirname(sys.executable)
+    # якщо звичайний запуск
+    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+DB_PATH = os.path.join(base_path(), "database", "films.sqlite")
+
 
 def get_db():
     if "db" not in g:
@@ -28,6 +38,8 @@ def index():
     q = request.args.get("q", "").strip()
     type_src = request.args.get("type", "").strip()
 
+    total = db.execute("SELECT COUNT(*) FROM content").fetchone()[0]
+
     sql = "SELECT * FROM content WHERE 1=1"
     params = []
 
@@ -35,6 +47,7 @@ def index():
         sql += " AND (title_ua LIKE ? OR title_ua LIKE ?)"
         params.append(f"%{q}%")
         params.append(f"%{q.title()}%")
+
     if type_src:
         sql += " AND type_src = ?"
         params.append(type_src)
@@ -47,7 +60,8 @@ def index():
         items=items,
         q=q,
         type_src=type_src,
-        version=APP_VERSION
+        version=APP_VERSION,
+        total=total
     )
 
 
@@ -62,9 +76,9 @@ def detail(item_id):
     return render_template(
         "detail.html",
         item=item,
-        version=APP_VERSION
+        version=APP_VERSION,
     )
 
-APP_VERSION = "0.0.2"
+APP_VERSION = "0.0.3"
 if __name__ == "__main__":
     app.run(debug=True, port=80)
