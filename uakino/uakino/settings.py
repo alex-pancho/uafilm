@@ -69,7 +69,7 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'uakino.pipelines.UakinoPipeline': 300,
+   'uakino.pipelines.SQLitePipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

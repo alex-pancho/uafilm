@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>{{ item.title_ua }}</h2>
+
+<p><b>Оригінальна назва:</b> {{ item.title_or }}</p>
+<p><b>Рік:</b> {{ item.year }}</p>
+<p><b>Тип:</b> {{ item.type_src }}</p>
+<p><b>IMDb:</b> {{ item.imdb }}</p>
+
+{% if item.poster %}
+<img src="{{ item.poster }}">
+{% endif %}
+
+<p><b>Опис:</b><br>{{ item.description }}</p>
+
+<a href="/">← назад</a>
+
+<iframe 
+    src={{ item.m3u_links }}
+    frameborder="0"
+    width="100%"
+    height="800"
+    allowfullscreen
+    allow="autoplay; fullscreen">
+</iframe>
+
+<!-- <h3>JSON</h3>
+<pre>{{ item.json }}</pre> -->
+
+<a href="/">← назад</a>
+
+
+{% endblock %}

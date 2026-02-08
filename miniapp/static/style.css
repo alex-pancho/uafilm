@@ -1,0 +1,29 @@
+body {
+    font-family: Arial;
+    background: #111;
+    color: #eee;
+}
+
+a {
+    color: #7dd3fc;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #38bdf8;
+    text-decoration: underline;
+}
+
+.card {
+    border: 1px solid #333;
+    padding: 10px;
+    margin: 10px;
+}
+
+img {
+    max-height: 150px;
+}
+
+input, select {
+    padding: 5px;
+}

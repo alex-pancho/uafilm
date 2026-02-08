@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="get">
+    <input type="text" name="q" placeholder="Пошук..." value="{{ q }}">
+    <select name="type">
+        <option value="">Усі</option>
+        <option value="film" {% if type_src=="film" %}selected{% endif %}>Фільми</option>
+        <option value="series" {% if type_src=="series" %}selected{% endif %}>Серіали</option>
+        <option value="cartoon" {% if type_src=="cartoon" %}selected{% endif %}>Мультфільми</option>
+    </select>
+    <button>Шукати</button>
+</form>
+
+<hr>
+
+{% for item in items %}
+<div class="card">
+    <a href="/item/{{ item._id }}">
+        <b>{{ item.title_ua }}</b> ({{ item.year }})
+    </a><br>
+    Тип: {{ item.type_src }}<br>
+    {% if item.poster %}
+        <img src="{{ item.poster }}">
+    {% endif %}
+</div>
+
+{% endfor %}
+
+<a href="/">← назад</a>
+{% endblock %}
