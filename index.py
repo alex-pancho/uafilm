@@ -3,7 +3,7 @@ import webbrowser
 from miniapp.app import app
 
 HOST = "127.0.0.1"
-PORT = 5000
+PORT = 80
 
 def run_flask():
     app.run(port=PORT)

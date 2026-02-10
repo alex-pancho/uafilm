@@ -18,7 +18,7 @@
       "justMyCode": false
     },
     {
-      "name": "Debug Scrapy Spider HD",
+      "name": "Scrapy AshDi",
       "type": "python",
       "request": "launch",
       "module": "scrapy",
@@ -28,7 +28,7 @@
       "justMyCode": false
     },
     {
-      "name": "Debug Scrapy Spider uakino",
+      "name": "Scrapy uakino",
       "type": "python",
       "request": "launch",
       "module": "scrapy",
@@ -37,5 +37,17 @@
       "console": "integratedTerminal",
       "justMyCode": false
     },
+    {
+      "name": "Flask",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/miniapp/app.py",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "env": {
+        "FLASK_ENV": "development",
+        "FLASK_DEBUG": "1"
+      },
+    }
     ]
 }

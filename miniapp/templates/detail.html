@@ -16,17 +16,40 @@
 
 <a href="/">← назад</a>
 
-<iframe 
-    src={{ item.m3u_links }}
-    frameborder="0"
-    width="100%"
-    height="800"
-    allowfullscreen
-    allow="autoplay; fullscreen">
-</iframe>
+{% for season in seasons %}
+    {% if season.season_number == 0 %}
+        <h3>Плеєри</h3>
+    {% else %}
+        <h3>Сезон {{ season.season_number }}</h3>
+    {% endif %}
 
-<!-- <h3>JSON</h3>
-<pre>{{ item.json }}</pre> -->
+{% for p in playlists_by_season.get(season.season_number, []) %}
+    <div class="card">
+      Джерело: {{ p.source }}<br>
+      {% if p.ext_player %}
+        <a href="{{ p.ext_player }}" target="_blank">🌍 Відтворити у новій  вкладці</a>
+        <iframe 
+            src={{ p.ext_player }}
+            frameborder="0"
+            width="50%"
+            height="450"
+            allowfullscreen
+            allow="autoplay; fullscreen">
+        </iframe>
+      {% endif %}
+      {% if p.m3u_url %}
+        <a href="{{ p.m3u_url }}">▶ Передати у зовнішній плеєр</a>
+       {% else%}
+        <ul>
+            <li><button onclick="fetchM3U({{ p._id }})">
+                📥 Завантажити посилання для плеєру
+                </button></li>
+            <li>Завантажити медіа локально (УВАГА! Потребує гігабайти вільного місця, особливо серіали)</li>
+        </ul>
+      {% endif %}
+    </div>
+  {% endfor %}
+{% endfor %}
 
 <a href="/">← назад</a>
 
