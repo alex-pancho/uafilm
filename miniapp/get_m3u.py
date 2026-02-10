@@ -3,12 +3,12 @@ import os
 import re
 import sys
 import sqlite3
-# import niquests
+import niquests
 # from pathlib import Path
 from flask import jsonify
 
 
-def extract_ashdi_data(html: str):
+def extract_ashdi_data(html: str) -> dict:
     data = {}
 
     m3u = re.search(r"file\s*:\s*['\"]([^'\"]+\.m3u8)['\"]", html)
@@ -41,14 +41,19 @@ def get_db():
     return db
 
 
-def parse_player_and_get_m3u(url, headers):
+def parse_player_and_get_m3u(url, headers) -> dict:
     # ТУТ викликаєш:
     # scrapy crawl player_spider -a url=...
     # або свою requests+regex логіку
-
-    print("Парсю:", url)
-
-    return "https://example.com/video.m3u8"
+    if "ashdi.vip" in url:
+        resp = niquests.get(url)
+    else:
+        resp = niquests.get(url, headers=headers)
+    resp.raise_for_status()
+    html_text = resp.text
+    # fallback: try to extract .m3u8 from inline player config
+    ashdi = extract_ashdi_data(html_text)
+    return ashdi if ashdi else None
 
 
 def fetch_m3u(playlist_id, headers):
@@ -62,9 +67,9 @@ def fetch_m3u(playlist_id, headers):
 
     if not playlist:
         return {"status": "error", "message": "Playlist not found"}
-
-    url_player = playlist["ext_player"]
-    m3u_link = playlist["m3u_url"]
+   
+    m3u_link = playlist[0]
+    url_player = playlist[1]
 
     if not url_player:
         return {"status": "error", "message": "No ext_player url"}
@@ -74,11 +79,13 @@ def fetch_m3u(playlist_id, headers):
 
     # ТУТ ти викликаєш свого павука / парсер
     m3u_url = parse_player_and_get_m3u(url_player, headers)
+    if m3u_url.get("m3u", False):
+        db.execute(
+            "UPDATE playlist SET m3u_url = ? WHERE _id = ?",
+            (m3u_url["m3u"], playlist_id)
+        )
+        db.commit()
 
-    db.execute(
-        "UPDATE playlist SET m3u_url = ? WHERE _id = ?",
-        (m3u_url, playlist_id)
-    )
-    db.commit()
-
-    return {"status": "ok", "message": "m3u оновлено"}
+        return {"status": "ok", "message": "m3u оновлено"}
+    else
+        return {"status": "fail", "message": "get m3u fail"}

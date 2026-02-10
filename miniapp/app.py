@@ -3,7 +3,10 @@ import sys
 import sqlite3
 import random
 from flask import Flask, render_template, request, g
-from miniapp.get_m3u import fetch_m3u as fm3u
+try:
+    from miniapp.get_m3u import fetch_m3u as fm3u
+except ImportError:
+    from get_m3u import fetch_m3u as fm3u
 
 
 app = Flask(__name__)
@@ -112,8 +115,8 @@ def detail(item_id):
 
 @app.route("/fetch_m3u/<int:playlist_id>", methods=["POST"])
 def fetch_m3u(playlist_id):
-    headers = request.headers()
-    headers["Refer"] = "https://uakino.best/"
+    headers = dict(request.headers)
+    headers["Referer"] = "https://uakino.best/"
     return fm3u(playlist_id, headers)
 
 
