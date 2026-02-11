@@ -9,3 +9,4 @@ database/films.sqlite
 build
 dist
 index.spec
+.continue/agents/new-config.yaml
