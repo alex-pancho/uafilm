@@ -119,6 +119,6 @@ def fetch_m3u(playlist_id):
     return fm3u(playlist_id, headers)
 
 
-APP_VERSION = "0.0.5"
+APP_VERSION = "0.0.7"
 if __name__ == "__main__":
     app.run(debug=True, port=80)
