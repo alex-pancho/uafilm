@@ -116,7 +116,6 @@ def detail(item_id):
 @app.route("/fetch_m3u/<int:playlist_id>", methods=["POST"])
 def fetch_m3u(playlist_id):
     headers = dict(request.headers)
-    headers["Referer"] = "https://uakino.best/"
     return fm3u(playlist_id, headers)
 
 
