@@ -84,8 +84,13 @@ def fetch_m3u(playlist_id, headers):
             "UPDATE playlist SET m3u_url = ? WHERE _id = ?",
             (m3u_url["m3u"], playlist_id)
         )
+        if m3u_url.get("subtitle", False):
+            db.execute(
+            "UPDATE playlist SET subtitle = ? WHERE _id = ?",
+            (m3u_url["subtitle"], playlist_id)
+            )
         db.commit()
 
         return {"status": "ok", "message": "m3u оновлено"}
-    else
+    else:
         return {"status": "fail", "message": "get m3u fail"}
