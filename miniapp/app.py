@@ -42,6 +42,8 @@ def index():
     db = get_db()
 
     q = request.args.get("q", "").strip()
+    yr = request.args.get("year", 0)
+    mode = request.args.get("mod", "").strip()
 
     type_src = request.args.get("type", "").strip()
 
@@ -49,22 +51,37 @@ def index():
 
     params = []
 
-    if not q:
+    if not q and not yr:
         # Generate 200 random IDs from 1 to total
         random_limit = min(200, total)
         random_ids = random.sample(range(1, total + 1), random_limit)
         placeholders = ",".join("?" * len(random_ids))
         sql = f"SELECT * FROM content WHERE _id IN ({placeholders})"
         params = random_ids
+    elif not q and yr:
+        sql = "SELECT * FROM content WHERE 1=1"
     else:
         sql = "SELECT * FROM content WHERE 1=1"
-        sql += " AND (title_ua LIKE ? OR title_ua LIKE ?)"
+        sql += " AND ((title_ua LIKE ? OR title_ua LIKE ?)"
+        sql += " OR (LOWER(title_or) LIKE ?))"
         params.append(f"%{q.lower()}%")
         params.append(f"%{q.title()}%")
+        params.append(f"%{q.lower()}%")
 
     if type_src:
         sql += " AND type_src = ?"
         params.append(type_src)
+    
+    if yr:
+        if mode == "eq":
+            eq = "="
+        elif mode == "ltq":
+            eq = "<="
+        else:
+            eq = ">"
+        sql += f" AND year {eq} ?"
+        params.append(yr)
+
 
     sql += " ORDER BY _id DESC LIMIT 200"
 

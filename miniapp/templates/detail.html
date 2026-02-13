@@ -28,16 +28,6 @@
       Джерело: {{ p.source }}<br>
       {% if p.ext_player %}
         <a href="{{ p.ext_player }}" target="_blank">🌍 Відтворити у новій  вкладці</a>
-        <p></p>
-        <iframe 
-            src={{ p.ext_player }}
-            frameborder="0"
-            width="50%"
-            height="450"
-            allowfullscreen
-            allow="autoplay; fullscreen">
-        </iframe>
-        <p></p>
       {% endif %}
       {% if p.m3u_url %}
        <ul>

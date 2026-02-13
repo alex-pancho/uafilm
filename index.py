@@ -1,5 +1,4 @@
 import threading
-import sys
 import os
 import signal
 import webbrowser

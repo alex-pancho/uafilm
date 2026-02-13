@@ -1,9 +1,11 @@
 
 import os
 import re
+import json
 import sys
 import sqlite3
 import niquests
+
 # from pathlib import Path
 from flask import jsonify
 
@@ -23,6 +25,39 @@ def extract_ashdi_data(html: str) -> dict:
         data["subtitle"] = sub.group(1)
 
     return data
+
+def get_text_key(text, keyword, end: str = "\n"):
+    start = text.find(keyword)
+    if start == -1:
+        return None
+    start = start + len(keyword)
+    end = text.find(end, start)
+    if end == -1:
+        end = len(text)
+    return text[start:end]
+
+def extract_player_block(body):
+    key = "var player = new Playerjs"
+    return get_text_key(body, key, "});")
+
+
+def parse_stream(html: str):
+    """
+    Extract m3u8 from JS player
+    """
+    item = {}
+    src = extract_player_block(html)
+    if not src:
+        print(f"Player not found!")
+        return
+
+    file = get_text_key(src, '(', '}]}]}]') + "}"
+    subtitle = get_text_key(src, 'subtitle:"', '"')
+    j_file = json.loads(file)
+    item["m3u_links"] = {
+        "m3u_link": file,
+        "subtitle": subtitle or "",
+    }
 
 
 def base_path():
@@ -52,7 +87,8 @@ def parse_player_and_get_m3u(url, headers) -> dict:
     resp.raise_for_status()
     html_text = resp.text
     # fallback: try to extract .m3u8 from inline player config
-    ashdi = extract_ashdi_data(html_text)
+    # ashdi = extract_ashdi_data(html_text)
+    ashdi = parse_stream(html_text)
     return ashdi if ashdi else None
 
 

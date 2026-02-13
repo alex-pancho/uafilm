@@ -8,7 +8,12 @@
         <option value="">Усі</option>
         <option value="film" {% if type_src=="film" %}selected{% endif %}>Фільми</option>
         <option value="serial" {% if type_src=="serial" %}selected{% endif %}>Серіали</option>
-        <option value="cartoon" {% if type_src=="cartoon" %}selected{% endif %}>Мультфільми</option>
+    </select>
+    <input type="integer" name="year" placeholder="Piк" value="{{ yr }}">
+    <select name="mod">
+        <option value="eq">дорівнює</option>
+        <option value="ltq" >до або рівно</option>
+        <option value="gt" >після</option>
     </select>
     <button>Шукати</button>
 </form>
