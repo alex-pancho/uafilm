@@ -1,4 +1,9 @@
+function openItem(id) {
+    window.location.href = "/item/" + id;
+}
+
 function fetchM3U(playlist_id) {
+
     fetch(`/fetch_m3u/${playlist_id}`, {
         method: "POST",
         headers: {
@@ -15,11 +20,11 @@ function fetchM3U(playlist_id) {
         if (data.status === "exists") {
             if (confirm(data.message)) {
                 // користувач нажав OK - перезаписати
-                location.reload();
+                openItem(playlist_id);
             }
         } else {
             alert(data.message);
-            location.reload();
+            openItem(playlist_id);
         }
     });
 }

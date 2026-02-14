@@ -56,12 +56,18 @@ def index():
         random_limit = min(200, total)
         random_ids = random.sample(range(1, total + 1), random_limit)
         placeholders = ",".join("?" * len(random_ids))
-        sql = f"SELECT * FROM content WHERE _id IN ({placeholders})"
+        sql = "SELECT * FROM content "
+        sql += " JOIN playlist on playlist.content_id = content._id"
+        sql += f" WHERE  content._id IN ({placeholders})"
         params = random_ids
     elif not q and yr:
-        sql = "SELECT * FROM content WHERE 1=1"
+        sql = "SELECT * FROM content "
+        sql += " JOIN playlist on playlist.content_id = content._id"
+        sql += " WHERE 1=1"
     else:
-        sql = "SELECT * FROM content WHERE 1=1"
+        sql = "SELECT * FROM content "
+        sql += " JOIN playlist on playlist.content_id = content._id"
+        sql += " WHERE 1=1"
         sql += " AND ((title_ua LIKE ? OR title_ua LIKE ?)"
         sql += " OR (LOWER(title_or) LIKE ?))"
         params.append(f"%{q.lower()}%")
@@ -83,7 +89,7 @@ def index():
         params.append(yr)
 
 
-    sql += " ORDER BY _id DESC LIMIT 200"
+    sql += " ORDER BY content._id DESC LIMIT 200"
 
     items = db.execute(sql, params).fetchall()
     return render_template(
@@ -101,7 +107,7 @@ def detail(item_id):
     db = get_db()
  
     content = db.execute(
-        "SELECT * FROM content WHERE _id = ?",
+        "SELECT * FROM content WHERE content._id = ?",
         (item_id,)
     ).fetchone()
 

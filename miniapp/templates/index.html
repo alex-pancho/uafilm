@@ -19,18 +19,11 @@
 </form>
 
 <hr>
-
+{% from "move_item.html" import render_item %}
 {% for item in items %}
 <div class="card">
-    <a href="/item/{{ item._id }}">
-        <b>{{ item.title_ua }}</b> ({{ item.year }})
-    </a><br>
-    Тип: {{ item.type_src }}<br>
-    {% if item.poster %}
-        <img src="{{ item.poster }}">
-    {% endif %}
+    {{ render_item(item) }}
 </div>
-
 {% endfor %}
 
 <a href="/">← назад</a>

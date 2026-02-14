@@ -1,0 +1,40 @@
+{% macro render_item(item) %}
+<table>
+    <tr>
+        <td class="poster">
+            {% if item.poster %}
+                <img src="{{ item.poster }}">
+            {% endif %}
+        </td>
+        <td class="desc">
+            {% if item.title_ua %} 
+            <a href="/item/{{ item._id }}">
+                <b>{{ item.title_ua }}</b> ({{ item.year }})
+            </a><br>
+            {% endif %}
+            {% if item.type_src %} 
+                Тип: {{ item.type_src }}<br>
+            {% endif %}
+            {% if item.ext_player %}
+                <a href="{{ item.ext_player }}" target="_blank">🌍 Відтворити у новій  вкладці</a>
+            {% endif %}
+            {% if item.m3u_url %}
+                <p></p>
+                ▶<a href="{{ item.m3u_url }}"> Передати у зовнішній плеєр</a>
+                {% if item.type_src == "film" %}
+                    <button>Завантажити медіа локально (це ще не працює)</button>
+                    (УВАГА! Потребує вільного місця, особливо серіали)
+                {% endif %}
+            {% else %}
+                {% if item.type_src == "film" %}
+                <p>
+                    <button onclick="fetchM3U({{ item._id }})">
+                        📥 Завантажити посилання для плеєру
+                    </button>
+                </p>
+                {% endif %}
+            {% endif %}                
+        </td>
+    </tr>
+</table>
+{% endmacro %}

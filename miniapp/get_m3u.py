@@ -51,7 +51,7 @@ def parse_stream(html: str):
         print(f"Player not found!")
         return
 
-    file = get_text_key(src, '(', '}]}]}]') + "}"
+    file = get_text_key(src, '(', '') + "}"
     subtitle = get_text_key(src, 'subtitle:"', '"')
     j_file = json.loads(file)
     item["m3u_links"] = {
@@ -87,8 +87,8 @@ def parse_player_and_get_m3u(url, headers) -> dict:
     resp.raise_for_status()
     html_text = resp.text
     # fallback: try to extract .m3u8 from inline player config
-    # ashdi = extract_ashdi_data(html_text)
-    ashdi = parse_stream(html_text)
+    ashdi = extract_ashdi_data(html_text)
+    # ashdi = parse_stream(html_text)
     return ashdi if ashdi else None
 
 
