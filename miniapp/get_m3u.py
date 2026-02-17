@@ -18,7 +18,7 @@ def extract_ashdi_data(html: str) -> dict:
     sub = re.search(r"subtitle\s*:\s*['\"]([^'\"]*)['\"]", html)
 
     if m3u:
-        data["m3u"] = m3u.group(1)
+        data["m3u_links"] = m3u.group(1)
     if poster:
         data["poster"] = poster.group(1)
     if sub:
@@ -26,19 +26,20 @@ def extract_ashdi_data(html: str) -> dict:
 
     return data
 
-def get_text_key(text, keyword, end: str = "\n"):
+def get_text_key(text, keyword, keyword_end: str = "\n"):
     start = text.find(keyword)
     if start == -1:
         return None
     start = start + len(keyword)
-    end = text.find(end, start)
+    end = text.find(keyword_end, start)
     if end == -1:
         end = len(text)
     return text[start:end]
 
 def extract_player_block(body):
-    key = "var player = new Playerjs"
-    return get_text_key(body, key, "});")
+    key = "var player = new Playerjs("
+    end = ");"
+    return get_text_key(body, key, end)
 
 
 def parse_stream(html: str):
@@ -50,14 +51,19 @@ def parse_stream(html: str):
     if not src:
         print(f"Player not found!")
         return
-
-    file = get_text_key(src, '(', '') + "}"
-    subtitle = get_text_key(src, 'subtitle:"', '"')
-    j_file = json.loads(file)
-    item["m3u_links"] = {
-        "m3u_link": file,
-        "subtitle": subtitle or "",
-    }
+    src = src.replace("\'", "").replace("\n", "").replace("\t", "")
+    file = get_text_key(src, 'file:', ',plstart:')
+    # subtitle = get_text_key(src, 'subtitle:"', '"')
+    try:
+        j_file = json.loads(file)
+    except json.JSONDecodeError:
+        return jsonify({"status": "fail", "message": "Cant get link object"})
+    if len(j_file) > 1:
+        item["m3u_links"] = json.dumps(j_file[0], ensure_ascii=False)
+        item["subtitle"] = json.dumps(j_file[1], ensure_ascii=False)
+    else:
+        item["m3u_links"] = json.dumps(j_file[0],ensure_ascii=False)
+    return item
 
 
 def base_path():
@@ -87,8 +93,8 @@ def parse_player_and_get_m3u(url, headers) -> dict:
     resp.raise_for_status()
     html_text = resp.text
     # fallback: try to extract .m3u8 from inline player config
-    ashdi = extract_ashdi_data(html_text)
-    # ashdi = parse_stream(html_text)
+    # ashdi = extract_ashdi_data(html_text)
+    ashdi = parse_stream(html_text)
     return ashdi if ashdi else None
 
 
@@ -115,10 +121,10 @@ def fetch_m3u(playlist_id, headers):
 
     # ТУТ ти викликаєш свого павука / парсер
     m3u_url = parse_player_and_get_m3u(url_player, headers)
-    if m3u_url.get("m3u", False):
+    if m3u_url.get("m3u_links", False):
         db.execute(
             "UPDATE playlist SET m3u_url = ? WHERE _id = ?",
-            (m3u_url["m3u"], playlist_id)
+            (m3u_url["m3u_links"], playlist_id)
         )
         if m3u_url.get("subtitle", False):
             db.execute(
